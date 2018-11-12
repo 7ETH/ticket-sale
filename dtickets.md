@@ -14,7 +14,11 @@ Example: a band wants to sell tickets for a concert, but wants to avoid the high
 
 Although the implementation of these contracts was pretty thorough, it doesn't consider security risks very much and it costs about 0.28 ETH to deploy (tested with Ganache). That seems very fixable...
 
+As it is done right now, each ticket sale is a separate smart contract. It is done that way so that the code doesn't stay forever in the blockchain and can be updated for new ticket sales. Should this be done this way? Could we implement a different upgradable pattern?
+
 ## Frontend
 Implemented with Web3, React and a [Bootswatch](https://bootswatch.com/) template, it enables users to enter the ticket sale contract address and buy tickets. AND THAT IS IT.
 
 The frontend would probably have to get done from scratch, as it was done in probably two nights and it poorly uses ethjs instead of web3. The UI is too simple and not intuitive at all, as it doesn't show any instructions on what to do. It does check and show the state of web3 (enabled? which address is being used?).
+
+On the other hand, there is no interaction with IPFS aside from showing the link of the IPFS hash stored in the ticket sale contract that is being used. There should be a way to let the administrator upload a PDF file or something to IPFS and attach it to the smart contract.
